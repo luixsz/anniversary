@@ -1,82 +1,239 @@
 @import "tailwindcss";
 
-/* Floating Flowers */
-.flower {
-  position: absolute;
-  font-size: 2.5rem;
-  opacity: 0.35;
-  animation: float 14s linear infinite;
-}
-
-.flower-1 { top: 80%; left: 10%; animation-delay: 0s; }
-.flower-2 { top: 90%; left: 70%; animation-delay: 3s; }
-.flower-3 { top: 75%; left: 40%; animation-delay: 6s; }
-.flower-4 { top: 85%; left: 85%; animation-delay: 9s; }
-.flower-5 { top: 95%; left: 25%; animation-delay: 12s; }
-
-@keyframes float {
-  0% { transform: translateY(0) rotate(0); }
-  50% { transform: translateY(-40vh) rotate(10deg); }
-  100% { transform: translateY(-80vh) rotate(-10deg); }
-}
-
-/* Hero Float */
+/* Soft floating hero text */
 .hero-float {
   animation: heroFloat 6s ease-in-out infinite;
 }
+
 @keyframes heroFloat {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
 }
 
-/* Photo Fade-in */
+/* Page fade in */
+.page-fade {
+  animation: pageFade 0.7s ease-out both;
+}
+
+@keyframes pageFade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Section subtle fade */
+.section-fade {
+  animation: sectionFade 0.7s ease-out both;
+}
+
+.section-fade:nth-of-type(1) {
+  animation-delay: 0.05s;
+}
+.section-fade:nth-of-type(2) {
+  animation-delay: 0.12s;
+}
+.section-fade:nth-of-type(3) {
+  animation-delay: 0.18s;
+}
+.section-fade:nth-of-type(4) {
+  animation-delay: 0.24s;
+}
+.section-fade:nth-of-type(5) {
+  animation-delay: 0.3s;
+}
+.section-fade:nth-of-type(6) {
+  animation-delay: 0.36s;
+}
+
+@keyframes sectionFade {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Soft card shadow */
+.shadow-soft {
+  box-shadow: 0 10px 25px rgba(244, 114, 182, 0.15);
+}
+
+/* Photo fade in */
 .photo-fade-in {
-  animation: photoFadeIn 0.5s ease-out;
+  animation: photoFadeIn 0.4s ease-out;
 }
+
 @keyframes photoFadeIn {
-  0% { opacity: 0; transform: translateY(10px) scale(.97); }
-  100% { opacity: 1; transform: translateY(0) scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
-/* Button Pulse */
+/* Pulsing button for gallery */
 .photo-button-pulse {
-  animation: pulse 1.6s ease-in-out infinite;
-}
-@keyframes pulse {
-  0%,100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(244,114,182,0.3); }
-  50% { transform: scale(1.03); box-shadow: 0 0 0 8px rgba(244,114,182,0); }
+  animation: buttonPulse 1.6s ease-in-out infinite;
 }
 
-/* Heart Burst */
-.heart-burst {
+@keyframes buttonPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(244, 114, 182, 0.4);
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 0 0 12px rgba(244, 114, 182, 0);
+  }
+}
+
+/* Love list slight slide in */
+.love-item {
+  animation: loveItemFade 0.5s ease-out both;
+}
+
+@keyframes loveItemFade {
+  from {
+    opacity: 0;
+    transform: translateX(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Letter fade */
+.letter-fade {
+  animation: letterFade 0.7s ease-out both;
+}
+
+@keyframes letterFade {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Counter gentle pop */
+.counter-pop {
+  animation: counterPop 0.6s ease-out;
+}
+
+@keyframes counterPop {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Surprise modal pop-in */
+.animate-pop-in {
+  animation: popIn 0.35s ease-out;
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Floating flowers background */
+.flower {
   position: absolute;
+  font-size: 1.8rem;
+  opacity: 0.12;
+  animation: flowerFloat 14s linear infinite;
+}
+
+.flower-1 {
+  top: 10%;
+  left: 5%;
+}
+.flower-2 {
+  top: 20%;
+  right: 10%;
+  animation-duration: 18s;
+}
+.flower-3 {
+  bottom: 15%;
+  left: 15%;
+  animation-duration: 20s;
+}
+.flower-4 {
+  bottom: 10%;
+  right: 5%;
+  animation-duration: 16s;
+}
+.flower-5 {
+  top: 50%;
   left: 50%;
-  top: -5px;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 6px;
+  transform: translate(-50%, -50%);
+  animation-duration: 22s;
+}
+
+@keyframes flowerFloat {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-12px) translateX(6px);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
+
+/* Heart burst for secret message */
+.heart-burst {
+  position: relative;
+  display: inline-flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  animation: heartFloat 1.2s ease-in-out infinite;
 }
 
 .heart-burst span {
+  font-size: 1.3rem;
   color: #fb7185;
-  font-size: 1.2rem;
-  animation: heartPop 0.9s ease-out forwards;
 }
 
-.heart-burst span:nth-child(2) { animation-delay: 0.05s; }
-.heart-burst span:nth-child(3) { animation-delay: 0.1s; }
-
-@keyframes heartPop {
-  0% { opacity: 0; transform: translateY(4px) scale(.6); }
-  40% { opacity: 1; transform: translateY(-6px) scale(1.1); }
-  100% { opacity: 0; transform: translateY(-16px) scale(.9); }
-}
-
-/* Surprise Page Pop-in */
-@keyframes pop-in {
-  0% { opacity: 0; transform: scale(.9) translateY(10px); }
-  100% { opacity: 1; transform: scale(1) translateY(0); }
-}
-.animate-pop-in {
-  animation: pop-in .35s ease-out;
+@keyframes heartFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
 }

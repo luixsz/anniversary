@@ -12,7 +12,7 @@ import img8 from "./assets/8.png";
 // CHANGE TO YOUR OFFICIAL DATE
 const relationshipStart = new Date("2023-11-20");
 
-// CHANGE THESE TO YOUR REAL MEMORIES
+// CORE MEMORY
 const memories = [
   {
     date: "Favorite Moment",
@@ -43,40 +43,16 @@ const reasonsILoveYou = [
   "I love you for who you are and everything you will become.",
 ];
 
-// PHOTOS (ADD YOUR OWN)
+// PHOTOS
 const photos = [
-  {
-    src: img1,
-    alt: "img1",
-  },
-  {
-    src: img2,
-    alt: "photo2",
-  },
-  {
-    src: img3,
-    alt: "photo3",
-  },
-  {
-    src: img4,
-    alt: "photo4",
-  },
-  {
-    src: img5,
-    alt: "photo5",
-  },
-  {
-    src: img6,
-    alt: "photo6",
-  },
-  {
-    src: img7,
-    alt: "photo7",
-  },
-  {
-    src: img8,
-    alt: "photo8",
-  },
+  { src: img1, alt: "img1" },
+  { src: img2, alt: "photo2" },
+  { src: img3, alt: "photo3" },
+  { src: img4, alt: "photo4" },
+  { src: img5, alt: "photo5" },
+  { src: img6, alt: "photo6" },
+  { src: img7, alt: "photo7" },
+  { src: img8, alt: "photo8" },
 ];
 
 function FlowerBackground() {
@@ -153,14 +129,14 @@ export default function App() {
   const currentPhoto = photos[currentPhotoIndex];
 
   return (
-    <div className="min-h-screen bg-linear-to-b from-pink-50 via-rose-50 to-white text-gray-800 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-pink-50 via-rose-50 to-white text-gray-800 relative overflow-hidden">
       <FlowerBackground />
 
       <audio ref={audioRef} src={songs} loop preload="auto" playsInline />
 
-      <main className="relative z-10 max-w-3xl mx-auto px-4 py-10 space-y-16">
+      <main className="relative z-10 max-w-3xl mx-auto px-4 py-10 space-y-16 page-fade">
         {/* HERO */}
-        <section className="text-center space-y-4">
+        <section className="text-center space-y-4 section-fade">
           <p className="text-sm tracking-[0.3em] uppercase text-rose-400">
             For My Love
           </p>
@@ -178,7 +154,7 @@ export default function App() {
           <div className="flex justify-center pt-3">
             <button
               onClick={() => setShowSurprisePage(true)}
-              className="px-10 py-5 rounded-full border border-rose-400 bg-rose-500 text-white text-sm shadow-sm hover:bg-rose-600 transition"
+              className="px-10 py-5 rounded-full border border-rose-400 bg-rose-500 text-white text-sm shadow-lg hover:bg-rose-600 hover:shadow-xl transition transform hover:-translate-y-0.5"
             >
               OPEN
             </button>
@@ -186,16 +162,16 @@ export default function App() {
         </section>
 
         {/* DAYS TOGETHER */}
-        <section className="text-center space-y-4">
+        <section className="text-center space-y-4 section-fade">
           <h2 className="text-2xl font-semibold text-rose-500">
             Days With You
           </h2>
 
-          <div className="bg-white/80 border border-rose-100 rounded-3xl px-8 py-6 shadow-sm inline-block">
+          <div className="bg-white/80 border border-rose-100 rounded-3xl px-8 py-6 shadow-soft inline-block">
             <p className="text-sm text-gray-600 mb-1">
               We've been together for
             </p>
-            <p className="text-4xl font-semibold text-rose-500">
+            <p className="text-4xl font-semibold text-rose-500 counter-pop">
               {daysTogether}
             </p>
             <p className="text-sm text-gray-600 mt-1">days 💕</p>
@@ -207,7 +183,7 @@ export default function App() {
         </section>
 
         {/* MEMORIES TIMELINE */}
-        <section className="space-y-6">
+        <section className="space-y-6 section-fade">
           <h2 className="text-2xl font-semibold text-rose-500">
             CORE MEMORIES
           </h2>
@@ -215,10 +191,10 @@ export default function App() {
             {memories.map((m, i) => (
               <div
                 key={i}
-                className="bg-white/70 border border-rose-100 rounded-2xl p-5 shadow-sm"
+                className="bg-white/70 border border-rose-100 rounded-2xl p-5 shadow-soft card-fade"
               >
                 <p className="text-xs uppercase text-rose-400 mb-1">{m.date}</p>
-                <h3 className="font-semibold text-lg">{m.title}</h3>
+                <h3 className="font-semibold text-lg mb-1">{m.title}</h3>
                 <p className="text-sm text-gray-600">{m.description}</p>
               </div>
             ))}
@@ -226,14 +202,14 @@ export default function App() {
         </section>
 
         {/* PHOTO SLIDESHOW */}
-        <section className="space-y-5 text-center">
+        <section className="space-y-5 text-center section-fade">
           <h2 className="text-2xl font-semibold text-rose-500">
             Little Moments I Love
           </h2>
 
           {showGallery && (
             <div className="w-full max-w-sm mx-auto">
-              <figure className="relative overflow-hidden rounded-3xl bg-white/80 border border-rose-100 shadow-lg photo-fade-in">
+              <figure className="relative overflow-hidden rounded-3xl bg-white/80 border border-rose-100 shadow-soft photo-fade-in">
                 <div className="w-full flex items-center justify-center p-3">
                   <img
                     src={currentPhoto.src}
@@ -262,14 +238,14 @@ export default function App() {
           {!showGallery ? (
             <button
               onClick={handleStartGallery}
-              className="px-6 py-2 rounded-full border border-rose-300 bg-white text-sm text-rose-500 shadow-sm hover:border-rose-400 transition photo-button-pulse"
+              className="px-6 py-2 rounded-full border border-rose-300 bg-white text-sm text-rose-500 shadow-soft hover:border-rose-400 transition photo-button-pulse"
             >
               Open our photo reel 💕
             </button>
           ) : (
             <button
               onClick={handleNextPhoto}
-              className="px-6 py-2 rounded-full bg-rose-500 text-white text-sm shadow-sm hover:bg-rose-600 transition"
+              className="px-6 py-2 rounded-full bg-rose-500 text-white text-sm shadow-soft hover:bg-rose-600 transition transform hover:-translate-y-0.5"
             >
               Next memory →
             </button>
@@ -277,7 +253,7 @@ export default function App() {
         </section>
 
         {/* THINGS I LOVE ABOUT YOU */}
-        <section className="space-y-6">
+        <section className="space-y-6 section-fade">
           <h2 className="text-2xl font-semibold text-rose-500">
             Things I Love About You
           </h2>
@@ -285,7 +261,7 @@ export default function App() {
             {reasonsILoveYou.map((reason, idx) => (
               <li
                 key={idx}
-                className="bg-white/70 border border-rose-100 rounded-2xl p-4 shadow-sm flex gap-3"
+                className="bg-white/70 border border-rose-100 rounded-2xl p-4 shadow-soft flex gap-3 love-item"
               >
                 <span className="text-rose-500 mt-1">♥</span>
                 <p className="text-sm text-gray-700">{reason}</p>
@@ -295,11 +271,11 @@ export default function App() {
         </section>
 
         {/* LETTER */}
-        <section className="space-y-4">
+        <section className="space-y-4 section-fade">
           <h2 className="text-2xl font-semibold text-rose-500">
             A Letter For You
           </h2>
-          <div className="bg-white/80 border border-rose-100 rounded-2xl p-5 shadow-sm text-sm text-gray-700 leading-relaxed">
+          <div className="bg-white/80 border border-rose-100 rounded-2xl p-5 shadow-soft text-sm text-gray-700 leading-relaxed letter-fade">
             <p>My love,</p>
             <p>
               I’m sorry that today, the day that was supposed to be our
@@ -318,27 +294,28 @@ export default function App() {
         </section>
 
         {/* SECRET MESSAGE */}
-        <section className="text-center pb-10 relative">
+        <section className="text-center pb-10 relative section-fade">
           <button
             onClick={() => setShowSecret((p) => !p)}
-            className="px-6 py-2 m-7 rounded-full bg-rose-500 text-white text-sm shadow-sm hover:bg-rose-600 transition"
+            className="px-6 py-2 m-7 rounded-full bg-rose-500 text-white text-sm shadow-soft hover:bg-rose-600 transition transform hover:-translate-y-0.5"
           >
             {showSecret ? "Hide secret message" : "Tap for a secret message"}
           </button>
 
           {showSecret && (
             <>
-              <div className="heart-burst justify-center items-center">
+              <div className="heart-burst">
                 <span>♥</span>
                 <span>♥</span>
                 <span>♥</span>
               </div>
 
-              <div className="mt-3 inline-block bg-white/80 border border-rose-100 rounded-2xl px-4 py-3 shadow-sm text-sm text-gray-700">
+              <div className="mt-3 inline-block bg-white/80 border border-rose-100 rounded-2xl px-4 py-3 shadow-soft text-sm text-gray-700">
+              <span className="text-rose-500 font-semibold">
                 Uwi kana saakin, miss na miss na kita. Balik ka na.
-                <span className="text-rose-500 font-semibold">
+                
                   {" "}
-                  I choose you. Always.
+                 
                 </span>
               </div>
             </>
@@ -383,7 +360,7 @@ export default function App() {
               I’m proud of every small step you take — not just for us, but for
               yourself. I see it, and I appreciate it more than you know. I love
               you so much, my love. Take your time to scroll… I hope you feel
-              the love in this small thing I made for you
+              the love in this small thing I made for you.
             </p>
 
             <p className="text-sm text-center text-gray-700">
